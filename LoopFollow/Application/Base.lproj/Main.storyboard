@@ -13,7 +13,7 @@
         <!--Home-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" userLabel="Home" customClass="MainViewController" customModule="LoopFollow" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" userLabel="Hjem" customClass="MainViewController" customModule="LoopFollow" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -291,7 +291,7 @@
                             <constraint firstItem="mJy-Ly-Jze" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="8" id="xem-Lc-bdU"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="acW-dT-cKf" userLabel="Home"/>
+                    <tabBarItem key="tabBarItem" title="Hjem" image="house" catalog="system" id="acW-dT-cKf" userLabel="Hjem"/>
                     <connections>
                         <outlet property="BGChart" destination="51B-JU-npv" id="oF1-UA-KHE"/>
                         <outlet property="BGChartFull" destination="Nml-lr-dgQ" id="Z21-fG-GK9"/>
