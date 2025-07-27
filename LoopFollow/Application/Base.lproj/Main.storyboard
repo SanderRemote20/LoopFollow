@@ -379,7 +379,7 @@
                         <viewLayoutGuide key="safeArea" id="SlM-Sc-PIr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Remote" image="antenna.radiowaves.left.and.right" catalog="system" id="c7L-5b-Di9"/>
+                    <tabBarItem key="tabBarItem" title="Fjernstyring" image="antenna.radiowaves.left.and.right" catalog="system" id="c7L-5b-Di9"/>
                     <navigationItem key="navigationItem" id="Lph-Pi-ZZL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rld-0Y-q4t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
