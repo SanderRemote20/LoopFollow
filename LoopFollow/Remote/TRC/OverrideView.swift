@@ -43,9 +43,9 @@ struct OverrideView: View {
                 } else {
                     Form {
                         if let activeNote = overrideNote.value {
-                            Section(header: Text("Active Override")) {
+                            Section(header: Text("Aktiv overstyring")) {
                                 HStack {
-                                    Text("Override")
+                                    Text("Overstyring")
                                     Spacer()
                                     Text(activeNote)
                                         .foregroundColor(.secondary)
@@ -55,7 +55,7 @@ struct OverrideView: View {
                                     showAlert = true
                                 } label: {
                                     HStack {
-                                        Text("Cancel Override")
+                                        Text("Kanseller overstyring")
                                         Spacer()
                                         Image(systemName: "xmark.app")
                                             .font(.title)
@@ -65,9 +65,9 @@ struct OverrideView: View {
                             }
                         }
 
-                        Section(header: Text("Available Overrides")) {
+                        Section(header: Text("Tilgjengelige overstyringer")) {
                             if profileManager.trioOverrides.isEmpty {
-                                Text("No overrides available.")
+                                Text("Ingen overstyringer tilgjengelige.")
                                     .foregroundColor(.secondary)
                             } else {
                                 ForEach(profileManager.trioOverrides, id: \.name) { override in
@@ -113,15 +113,15 @@ struct OverrideView: View {
                     }
                 }
             }
-            .navigationTitle("Overrides")
+            .navigationTitle("Overstyringer")
             .navigationBarTitleDisplayMode(.inline)
             .alert(isPresented: $showAlert) {
                 switch alertType {
                 case .confirmActivation:
                     return Alert(
-                        title: Text("Activate Override"),
-                        message: Text("Do you want to activate the override '\(selectedOverride?.name ?? "")'?"),
-                        primaryButton: .default(Text("Confirm"), action: {
+                        title: Text("Aktiver overstyring"),
+                        message: Text("Vil du aktivere overstyringen '\(selectedOverride?.name ?? "")'?"),
+                        primaryButton: .default(Text("Bekreft"), action: {
                             if let override = selectedOverride {
                                 activateOverride(override)
                             }
@@ -130,16 +130,16 @@ struct OverrideView: View {
                     )
                 case .confirmCancellation:
                     return Alert(
-                        title: Text("Cancel Override"),
-                        message: Text("Are you sure you want to cancel the active override?"),
-                        primaryButton: .default(Text("Confirm"), action: {
+                        title: Text("Kanseller overstyring"),
+                        message: Text("Er du sikker på at du vil kansellere den aktive overstyringen?"),
+                        primaryButton: .default(Text("Bekreft"), action: {
                             cancelOverride()
                         }),
                         secondaryButton: .cancel()
                     )
                 case .statusSuccess:
                     return Alert(
-                        title: Text("Success"),
+                        title: Text("Suksess"),
                         message: Text(statusMessage ?? ""),
                         dismissButton: .default(Text("OK"), action: {
                             presentationMode.wrappedValue.dismiss()
@@ -147,18 +147,18 @@ struct OverrideView: View {
                     )
                 case .statusFailure:
                     return Alert(
-                        title: Text("Error"),
-                        message: Text(statusMessage ?? "An error occurred."),
+                        title: Text("Feil"),
+                        message: Text(statusMessage ?? "En feil oppstod."),
                         dismissButton: .default(Text("OK"))
                     )
                 case .validation:
                     return Alert(
-                        title: Text("Validation Error"),
-                        message: Text(alertMessage ?? "Invalid input."),
+                        title: Text("Valideringsfeil"),
+                        message: Text(alertMessage ?? "Ugyldig inndata."),
                         dismissButton: .default(Text("OK"))
                     )
                 case .none:
-                    return Alert(title: Text("Unknown Alert"))
+                    return Alert(title: Text("Ukjent varsel"))
                 }
             }
         }
@@ -173,13 +173,13 @@ struct OverrideView: View {
             DispatchQueue.main.async {
                 self.isLoading = false
                 if success {
-                    self.statusMessage = "Override command sent successfully."
+                    self.statusMessage = "Overstyringskommando vellykket."
                     self.alertType = .statusSuccess
                     LogManager.shared.log(category: .apns, message: "sendOverridePushNotification succeeded for override: \(override.name)")
                 } else {
-                    self.statusMessage = errorMessage ?? "Failed to send override command."
+                    self.statusMessage = errorMessage ?? "Kunne ikke sende overstyringskommandoen."
                     self.alertType = .statusFailure
-                    LogManager.shared.log(category: .apns, message: "sendOverridePushNotification failed for override: \(override.name). Error: \(errorMessage ?? "unknown error")")
+                    LogManager.shared.log(category: .apns, message: "sendOverridePushNotification failed for override: \(override.name). Error: \(errorMessage ?? "ukjent feil")")
                 }
                 self.showAlert = true
             }
