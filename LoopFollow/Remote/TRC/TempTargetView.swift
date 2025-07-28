@@ -166,7 +166,7 @@ struct TempTargetView: View {
                     }
                 }
             }
-            .navigationTitle("Remote")
+            .navigationTitle("Fjernstyring")
             .navigationBarTitleDisplayMode(.inline)
             .alert(isPresented: $showAlert) {
                 switch alertType {
