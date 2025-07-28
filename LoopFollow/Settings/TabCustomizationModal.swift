@@ -50,7 +50,7 @@ struct TabCustomizationModal: View {
                     .onChange(of: alarmsPosition) { _ in checkForChanges() }
 
                     TabPositionRow(
-                        title: "Remote",
+                        title: "Fjernstyring",
                         icon: "antenna.radiowaves.left.and.right",
                         position: $remotePosition,
                         otherPositions: [alarmsPosition, nightscoutPosition]
