@@ -26,39 +26,39 @@ struct SettingsMenuView: View {
                 dataSection
 
                 // ───────── App settings ─────────
-                Section("App Settings") {
-                    NavigationRow(title: "Background Refresh Settings",
+                Section("App innstillinger") {
+                    NavigationRow(title: "Innstillinger for bakgrunnsoppdatering",
                                   icon: "arrow.clockwise")
                     {
                         settingsPath.value.append(Sheet.backgroundRefresh)
                     }
 
-                    NavigationRow(title: "General Settings",
+                    NavigationRow(title: "Generelle instillinger",
                                   icon: "gearshape")
                     {
                         settingsPath.value.append(Sheet.general)
                     }
 
-                    NavigationRow(title: "Graph Settings",
+                    NavigationRow(title: "Grafinnstillinger",
                                   icon: "chart.xyaxis.line")
                     {
                         settingsPath.value.append(Sheet.graph)
                     }
 
-                    NavigationRow(title: "Tab Settings",
+                    NavigationRow(title: "Faneinnstillinger",
                                   icon: "rectangle.3.group")
                     {
                         showingTabCustomization = true
                     }
 
                     if !nightscoutURL.value.isEmpty {
-                        NavigationRow(title: "Information Display Settings",
+                        NavigationRow(title: "Innstillinger for informasjonsvisning",
                                       icon: "info.circle")
                         {
                             settingsPath.value.append(Sheet.infoDisplay)
                         }
 
-                        NavigationRow(title: "Remote Settings",
+                        NavigationRow(title: "Fjernstyringsinnstillinger",
                                       icon: "antenna.radiowaves.left.and.right")
                         {
                             settingsPath.value.append(Sheet.remote)
@@ -68,13 +68,13 @@ struct SettingsMenuView: View {
 
                 // ───────── Alarms ─────────
                 Section {
-                    NavigationRow(title: "Alarms",
+                    NavigationRow(title: "Alarmer",
                                   icon: "bell")
                     {
                         settingsPath.value.append(Sheet.alarmsList)
                     }
 
-                    NavigationRow(title: "Alarm Settings",
+                    NavigationRow(title: "Alarminnstillinger",
                                   icon: "bell.badge")
                     {
                         settingsPath.value.append(Sheet.alarmSettings)
@@ -82,14 +82,14 @@ struct SettingsMenuView: View {
                 }
 
                 // ───────── Integrations ─────────
-                Section("Integrations") {
-                    NavigationRow(title: "Calendar",
+                Section("Integrasjoner") {
+                    NavigationRow(title: "Kalender",
                                   icon: "calendar")
                     {
                         settingsPath.value.append(Sheet.calendar)
                     }
 
-                    NavigationRow(title: "Contact",
+                    NavigationRow(title: "Kontakter",
                                   icon: "person.circle")
                     {
                         settingsPath.value.append(Sheet.contact)
@@ -98,7 +98,7 @@ struct SettingsMenuView: View {
 
                 // ───────── Advanced / Logs ─────────
                 Section("Advanced Settings") {
-                    NavigationRow(title: "Advanced Settings",
+                    NavigationRow(title: "Avanserte innstillinger",
                                   icon: "exclamationmark.shield")
                     {
                         settingsPath.value.append(Sheet.advanced)
@@ -106,19 +106,19 @@ struct SettingsMenuView: View {
                 }
 
                 Section("Logging") {
-                    NavigationRow(title: "View Log",
+                    NavigationRow(title: "Se logg",
                                   icon: "doc.text.magnifyingglass")
                     {
                         settingsPath.value.append(Sheet.viewLog)
                     }
 
-                    ActionRow(title: "Share Logs",
+                    ActionRow(title: "Del logg",
                               icon: "square.and.arrow.up",
                               action: shareLogs)
                 }
 
                 // ───────── Community ─────────
-                Section("Community") {
+                Section("Fellesskap") {
                     LinkRow(title: "LoopFollow Facebook Group",
                             icon: "person.2.fill",
                             url: URL(string: "https://www.facebook.com/groups/loopfollowlnl")!)
@@ -127,7 +127,7 @@ struct SettingsMenuView: View {
                 // ───────── Build info ─────────
                 buildInfoSection
             }
-            .navigationTitle("Settings")
+            .navigationTitle("Innstillinger")
             .navigationDestination(for: Sheet.self) { $0.destination }
             .sheet(isPresented: $showingTabCustomization) {
                 TabCustomizationModal(
@@ -157,13 +157,13 @@ struct SettingsMenuView: View {
             }
             .pickerStyle(.segmented)
 
-            NavigationRow(title: "Nightscout Settings",
+            NavigationRow(title: "Nightscout-innstillinger",
                           icon: "network")
             {
                 settingsPath.value.append(Sheet.nightscout)
             }
 
-            NavigationRow(title: "Dexcom Settings",
+            NavigationRow(title: "Dexcom-innstillinger",
                           icon: "sensor.tag.radiowaves.forward")
             {
                 settingsPath.value.append(Sheet.dexcom)
