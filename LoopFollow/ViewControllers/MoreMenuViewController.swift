@@ -19,7 +19,7 @@ class MoreMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "More"
+        title = "Mer"
         view.backgroundColor = .systemBackground
 
         // Apply dark mode if needed
@@ -80,7 +80,7 @@ class MoreMenuViewController: UIViewController {
 
         if Storage.shared.remotePosition.value == .more {
             menuItems.append(MenuItem(
-                title: "Remote",
+                title: "Fjernstyring",
                 icon: "antenna.radiowaves.left.and.right",
                 action: { [weak self] in
                     self?.openRemote()
