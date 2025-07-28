@@ -52,7 +52,7 @@ extension MainViewController {
             LoopStatusLabel.frame = CGRect(x: 0, y: 0, width: statusStackView.frame.width, height: statusStackView.frame.height)
 
             LoopStatusLabel.textAlignment = .center
-            LoopStatusLabel.text = "⚠️ Not Looping!"
+            LoopStatusLabel.text = "⚠️ Looper ikke!"
             LoopStatusLabel.textColor = UIColor.systemYellow
             LoopStatusLabel.font = UIFont.boldSystemFont(ofSize: 18)
 
