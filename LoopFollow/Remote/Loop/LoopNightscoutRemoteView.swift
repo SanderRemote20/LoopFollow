@@ -22,13 +22,13 @@ struct LoopNightscoutRemoteView: View {
                     ]
 
                     LazyVGrid(columns: columns, spacing: 16) {
-                        CommandButtonView(command: "Overrides", iconName: "slider.horizontal.3", destination: LoopOverrideView())
+                        CommandButtonView(command: "Overstyringer", iconName: "slider.horizontal.3", destination: LoopOverrideView())
                     }
                     .padding(.horizontal)
 
                     Spacer()
                 }
-                .navigationBarTitle("Loop Remote Control", displayMode: .inline)
+                .navigationBarTitle("Loop fjernstyring", displayMode: .inline)
             }
         }
     }
